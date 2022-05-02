@@ -1,5 +1,8 @@
 import urllib.request,json
 from .models import Article
+from app import models
+
+Article = models.Article
 
 # Getting api key
 api_key = None
