@@ -1,1 +1,25 @@
 {% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+
+    <!-- Content block -->
+    {% block content%}
+
+    <!-- Trending articles section -->
+    <h3>Trending Articles</h3>
+    <ul>
+        {{macro.displayArticleList(trending)}}
+    </ul>
+
+    <!-- upcoming articles -->
+    <h3>Upcoming Articles</h3>
+    <ul>
+        {{macro.displayArticleList(upcoming)}}
+    </ul>
+
+    <!-- Available articles -->
+    <h3>Available Articles</h3>
+    <ul>
+        {{macro.displayArticleList(available)}}
+    </ul>
+
+    {% block content %}
