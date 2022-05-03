@@ -1,4 +1,4 @@
-##### News~Star
+<h1>News~Star</h1>
 
 #### By Belinda Ntinyari
 
