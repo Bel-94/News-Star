@@ -5,21 +5,21 @@
     {% block content%}
 
     <!-- Trending articles section -->
-    <h3>Trending Articles</h3>
+    <h3>Headlines</h3>
     <ul>
-        {{macro.displayArticleList(trending)}}
+        {{macro.displayArticleList(headlines)}}
     </ul>
 
     <!-- upcoming articles -->
-    <h3>Upcoming Articles</h3>
+    <h3>Sources</h3>
     <ul>
-        {{macro.displayArticleList(upcoming)}}
+        {{macro.displayArticleList(sources)}}
     </ul>
 
     <!-- Available articles -->
-    <h3>Available Articles</h3>
+    <!-- <h3>Available Articles</h3>
     <ul>
         {{macro.displayArticleList(available)}}
-    </ul>
+    </ul> -->
 
-    {% block content %}
+    {% endblock %}

@@ -1,8 +1,9 @@
 
 class Source:
-    def __init__(self, id, name):
+    def __init__(self, id, url, name):
         self.id = id
         self.name = name
+        self.url = url
 
 
 

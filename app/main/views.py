@@ -2,7 +2,7 @@ from flask import render_template,request,redirect,url_for
 
 import app 
 from . import main
-from app.request import get_articles,get_article,search_article
+from app.request import get_article_sources, get_articles, search_article
 # from .forms import ReviewForm
 # from ..models import Article
 
@@ -12,37 +12,38 @@ from app.request import get_articles,get_article,search_article
 @main.route('/')
 def index():
 
-    trending_articles = get_articles('trending')
-    upcoming_article = get_articles('upcoming')
-    available_article = get_articles('available')
+    top_headlines = get_articles()
+    
+    sources = get_article_sources()
+
+    
+
 
     title = 'Hello! Welcome to the best News Site'
 
 
-    search_article = requests.args.get('article_query')
+    search_article = request.args.get('article_query')
 
     if search_article:
-        return redirect(url_for('search', article_name=search_article))
+        return redirect(url_for('.search', article=search_article))
     else:
 
-        return render_template('index.html', title=title, trending=trending_articles, upcoming=upcoming_article, available=available_article)
+        return render_template('index.html', title=title, headlines=top_headlines, sources=sources,)
 
-@main.route('/article/<int:article_id>')
-def article(article_id):
+# @main.route('/article/<int:article_id>')
+# def article(article_id):
 
-    article = get_article(article_id)
-    title = f'{article.title}'
+#     article = get_article(article_id)
+#     title = f'{article.title}'
 
-    return render_template('article.html', title=title, article=article )
+#     return render_template('article.html', title=title, article=article )
 
-@main.route('/search/<article_name>')
-def search(article_name):
+# @main.route('/search/<article_name>')
+# def search(article_name):
 
-    article_name_list = article_name.split(" ")
-    article_name_format = "+".join(article_name_list)
-    searched_articles = search_article(article_name_format)
-    title = f'search results for {article_name}'
-    return render_template('search.html', articles=searched_articles )
+#     article_name_list = article_name.split(" ")
+#     article_name_format = "+".join(article_name_list)
+#     searched_articles = search_article(article_name_format)
+#     title = f'search results for {article_name}'
+#     return render_template('search.html', articles=searched_articles )
 
-if __name__ == '__main__':
-    app.run(debug=True)

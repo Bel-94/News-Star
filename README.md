@@ -2,7 +2,7 @@
 
 <h2>By Belinda Ntinyari<h2>
 
-<p>This is a web app which a user can use to carch-up with any news across the globe.</p>
+<p>This is a web app which a user can use to catch-up with any news across the globe.</p>
 
 <h3>Description </h3>
 <p>This is an application that contains sources of news from across the globe. A user can use use to be keep up and get updated on any type of news.</p>
