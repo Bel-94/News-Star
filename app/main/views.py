@@ -1,10 +1,10 @@
-from flask import render_template,requests,redirect,url_for
+from flask import render_template,request,redirect,url_for
 
 import app 
 from . import main
-from ..requests import get_articles,get_article,search_article
-from .forms import ReviewForm
-from ..models import Article
+from app.request import get_articles,get_article,search_article
+# from .forms import ReviewForm
+# from ..models import Article
 
 
 
