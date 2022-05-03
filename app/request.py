@@ -48,15 +48,16 @@ def process_results(article_list):
 
     article_results = []
     for article_item in article_list:
-        article_id = article_item.get('article_id')
+        source_name = article_item.get('source_name')
         author = article_item.get('author')
         title = article_item.get('title')
         description = article_item.get('description')
+        url = article_item.get('url')
         image = article_item.get('image')
         date = article_item.get('date')
 
         if image:
-            article_object = Article(article_id, author, title, description, image, date)
+            article_object = Article(source_name, author, title, description, url, image, date)
             article_results.append(article_object)
 
     return article_results
@@ -82,19 +83,19 @@ def get_article(artical_id):
     return article_object
 
 
-def search_article(article_name):
-    search_article_url = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey={}'.format(api_key, article_name)
-    with urllib.request.urlopen(search_article_url) as url:
-        search_article_data = url.read()
-        search_article_response = json.loads(search_article_data)
+# def search_article(article_name):
+#     search_article_url = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey={}'.format(api_key, article_name)
+#     with urllib.request.urlopen(search_article_url) as url:
+#         search_article_data = url.read()
+#         search_article_response = json.loads(search_article_data)
 
-        search_article_results = None
+#         search_article_results = None
 
-        if search_article_response['results']:
-            search_article_list = search_article_response['results']
-            search_article_results = process_results(search_article_list)
+#         if search_article_response['results']:
+#             search_article_list = search_article_response['results']
+#             search_article_results = process_results(search_article_list)
 
-    return search_article_results
+#     return search_article_results
 
 
 

@@ -12,11 +12,12 @@ class Article:
 
     article_list = []
 
-    def __init__(self,article_id, author, title, description, image, date):
-        self.article_id = article_id
+    def __init__(self,source_name, author, title, description,url, image, date):
+        self.source_name = source_name
         self.author = author
         self.title = title
         self.description = description
+        self.url = url
         self.image = image
         self.date = date 
 
