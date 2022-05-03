@@ -34,7 +34,7 @@ To get the code:
     <li>The user can also click on an article and read the full article on the source website. </li>
 </ul>
 
-<h3>Technologies</h3>
+<h3>Technologies Used</h3>
 <ul>
     <li>Python3.8 & Flask</li>
     <li>HTML</li>
