@@ -16,18 +16,18 @@ def configure_request(app):
     base_url = app.config['ARTICLE_API_BASE_URL']
 
 
-def get_articles(category):
+def get_articles():
     '''
     Function that gets the json response to the url request
     '''
 
-    get_articles_url = base_url.format(category, api_key)
+    articles_url = base_url.format(api_key)
 
-    with urllib.request.urlopen(get_articles_url) as url:
+    with urllib.request.urlopen(articles_url) as url:
         get_articles_data = url.read()
         get_articles_response = json.loads(get_articles_data)
 
-        movie_results = None
+        artical_results = None
 
         if get_articles_response['results']:
             article_results_list = get_articles_response['results']
@@ -83,19 +83,19 @@ def get_article(artical_id):
     return article_object
 
 
-# def search_article(article_name):
-#     search_article_url = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey={}'.format(api_key, article_name)
-#     with urllib.request.urlopen(search_article_url) as url:
-#         search_article_data = url.read()
-#         search_article_response = json.loads(search_article_data)
+def search_article(article_name):
+    search_article_url = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey={}'.format(api_key, article_name)
+    with urllib.request.urlopen(search_article_url) as url:
+        search_article_data = url.read()
+        search_article_response = json.loads(search_article_data)
 
-#         search_article_results = None
+        search_article_results = None
 
-#         if search_article_response['results']:
-#             search_article_list = search_article_response['results']
-#             search_article_results = process_results(search_article_list)
+        if search_article_response['results']:
+            search_article_list = search_article_response['results']
+            search_article_results = process_results(search_article_list)
 
-#     return search_article_results
+    return search_article_results
 
 
 
