@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+
+<!-- Styles block -->
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+
+     <!-- Content block -->
+    {% block content%}
+
+    <!-- Article sources -->
+    <h3 class="header" style="color: #daad86; font-weight:900">Sources</h3>
+    <ul>
+        {{macro.displayArticleList(Sources)}}
+    </ul>
+
+    <div class="container"><br>
+        {% for source in sources %}
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 article-card">
+            <p>{{source.name}}</p>
+            <p>{{source.description}}</p>
+            <a href="{{source.url}}">Visit for More</a>
+    
+        </div>
+        {% endfor %}
+    </div>
+
+    {% endblock %}

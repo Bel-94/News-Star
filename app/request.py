@@ -90,11 +90,12 @@ def process_source_results(sources):
     source_results = []
 
     for source in sources:
-        id = source.get('id')
         name = source.get('name')
+        description = source.get('description')
         url = source.get('url')
+        
 
-        source = Source(id,name,url)
+        source = Source(name, description, url)
         source_results.append(source)
 
     return source_results

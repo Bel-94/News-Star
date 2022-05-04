@@ -1,9 +1,10 @@
 
 class Source:
-    def __init__(self, id, url, name):
-        self.id = id
+    def __init__(self, name, description,url):
         self.name = name
+        self.description = description
         self.url = url
+        
 
 
 

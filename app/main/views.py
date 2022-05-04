@@ -14,7 +14,7 @@ def index():
 
     top_headlines = get_articles()
     
-    sources = get_article_sources()
+    
 
     
 
@@ -28,15 +28,8 @@ def index():
         return redirect(url_for('.search', article=search_article))
     else:
 
-        return render_template('index.html', title=title, headlines=top_headlines, sources=sources)
+        return render_template('index.html', title=title, headlines=top_headlines)
 
-# @main.route('/article/<int:article_id>')
-# def article(article_id):
-
-#     article = get_article(article_id)
-#     title = f'{article.title}'
-
-#     return render_template('article.html', title=title, article=article )
 
 @main.route('/search/<article>')
 def search(article):
@@ -47,3 +40,9 @@ def search(article):
     title = f'search results for {article}'
     return render_template('search.html', articles=searched_articles )
 
+@main.route('/source')
+def source():
+
+    sources = get_article_sources()
+
+    return render_template('source.html',  sources=sources)
