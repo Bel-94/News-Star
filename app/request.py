@@ -17,7 +17,7 @@ source_url = None
 search_url = None
 
 def configure_request(app):
-    global api_key, base_url, source_url, category_url
+    global api_key, base_url, source_url, search_url
     api_key = app.config['ARTICLE_API_KEY']
     base_url = app.config['ARTICLE_API_BASE_URL']
     source_url = app.config['SOURCES_API_URL']
@@ -101,7 +101,7 @@ def process_source_results(sources):
 
 
 def search_article(article):
-    search_article_url = search_url.format(api_key, article)
+    search_article_url = search_url.format(article, api_key)
     with urllib.request.urlopen(search_article_url) as url:
         search_article_data = url.read()
         search_article_response = json.loads(search_article_data)
