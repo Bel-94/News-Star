@@ -3,7 +3,7 @@
     {% for article in headlines %}
     <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
         <img src="{{article.image}}" alt="" style="width:155px; height:100px" class="img-responsive"><br>
-        <p><span style="color: #daad86">Title:</span> {{article.title | truncate(5)}}</p>
+        <p><span style="color: #daad86">Title:</span> {{article.title}}</p>
         <p><span style="color: #daad86">Description:</span> {{article.description}}</p>
         <p><span style="color: #daad86">Author:</span> {{article.author}}</p>
         <p><span style="color: #daad86">Date Published:</span> {{article.date}}</p>
