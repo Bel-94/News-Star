@@ -28,7 +28,7 @@ def index():
         return redirect(url_for('.search', article=search_article))
     else:
 
-        return render_template('index.html', title=title, headlines=top_headlines, sources=sources,)
+        return render_template('index.html', title=title, headlines=top_headlines, sources=sources)
 
 # @main.route('/article/<int:article_id>')
 # def article(article_id):
@@ -38,12 +38,12 @@ def index():
 
 #     return render_template('article.html', title=title, article=article )
 
-# @main.route('/search/<article_name>')
-# def search(article_name):
+@main.route('/search/<article>')
+def search(article):
 
-#     article_name_list = article_name.split(" ")
-#     article_name_format = "+".join(article_name_list)
-#     searched_articles = search_article(article_name_format)
-#     title = f'search results for {article_name}'
-#     return render_template('search.html', articles=searched_articles )
+    article_name_list = article.split(" ")
+    article_name_format = "+".join(article_name_list)
+    searched_articles = search_article(article_name_format)
+    title = f'search results for {article}'
+    return render_template('search.html', articles=searched_articles )
 

@@ -4,14 +4,22 @@
     <!-- Content block -->
     {% block content%}
 
+    <div class="container">
+        <form>
+            <input type="text" name="article_query" placeholder="Search for an article" class="form-control">
+            <input type="submit"  value="Submit" class="btn btn-default">
+        </form>
+    
+    </div>
+
     <!-- Trending articles section -->
-    <h3>Headlines</h3>
+    <h3 style="color: #daad86; font-weight:900">Headlines</h3>
     <ul>
         {{macro.displayArticleList(headlines)}}
     </ul>
 
     <!-- upcoming articles -->
-    <h3>Sources</h3>
+    <h3 style="color: #daad86; font-weight:900">Sources</h3>
     <ul>
         {{macro.displayArticleList(sources)}}
     </ul>

@@ -1,4 +1,4 @@
-export ARTICLE_API_KEY='d40e824fa8a14c068897a2e4d48882dd'
+# export ARTICLE_API_KEY=''
 export SECRET_KEY='belMinnyx'
 
 

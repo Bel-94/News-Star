@@ -1,12 +1,18 @@
-{% macro displayArticleList(sources) %}
+{% macro displayArticleList(headlines) %}
 
-    {% for source in sources %}
+    {% for article in headlines %}
     <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
-        <h2>{{source.name}}</h2>
+        <img src="{{article.image}}" alt="" style="width:155px; height:100px" class="img-responsive"><br>
+        <p><span style="color: #daad86">Title:</span> {{article.title | truncate(5)}}</p>
+        <p><span style="color: #daad86">Description:</span> {{article.description}}</p>
+        <p><span style="color: #daad86">Author:</span> {{article.author}}</p>
+        <p><span style="color: #daad86">Date Published:</span> {{article.date}}</p>
+        <a href="{{article.url}}" target="blank">Full Article</a>
         
-        <li class="text-center">
-            <a href="/article/{{source.id}}">ReadMore</a>
-        </li>
+        
     </div>
     {% endfor %}
+
 {% endmacro %}
+
+
